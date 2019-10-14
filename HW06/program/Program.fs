@@ -26,7 +26,8 @@ let main argv =
     let rec sum list = 
         match list with
             | [] -> 0
-            | x :: xs -> x + sum xs
+            | curr :: new_value -> curr + sum new_value
+            //| curr:: tail -> curr + sum tail
     let total = sum values
     printfn "%A" total
      //

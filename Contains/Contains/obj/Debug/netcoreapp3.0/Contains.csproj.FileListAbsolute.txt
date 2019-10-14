@@ -1,0 +1,3 @@
+/Users/jsanch75/CS341/Contains/Contains/obj/Debug/netcoreapp3.0/Contains.csprojAssemblyReference.cache
+/Users/jsanch75/CS341/Contains/Contains/obj/Debug/netcoreapp3.0/Contains.AssemblyInfoInputs.cache
+/Users/jsanch75/CS341/Contains/Contains/obj/Debug/netcoreapp3.0/Contains.AssemblyInfo.cs

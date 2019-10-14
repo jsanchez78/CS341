@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jsanch75/CS341/HW06/program/program.fsproj": {}
+    "/Users/jsanch75/CS341/HW07/program/program.fsproj": {}
   },
   "projects": {
-    "/Users/jsanch75/CS341/HW06/program/program.fsproj": {
+    "/Users/jsanch75/CS341/HW07/program/program.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jsanch75/CS341/HW06/program/program.fsproj",
+        "projectUniqueName": "/Users/jsanch75/CS341/HW07/program/program.fsproj",
         "projectName": "program",
-        "projectPath": "/Users/jsanch75/CS341/HW06/program/program.fsproj",
+        "projectPath": "/Users/jsanch75/CS341/HW07/program/program.fsproj",
         "packagesPath": "/Users/jsanch75/.nuget/packages/",
-        "outputPath": "/Users/jsanch75/CS341/HW06/program/obj/",
+        "outputPath": "/Users/jsanch75/CS341/HW07/program/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/jsanch75/.config/NuGet/NuGet.Config"
+          "/Users/jsanch75/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
@@ -36,7 +36,7 @@
           "dependencies": {
             "FSharp.Core": {
               "target": "Package",
-              "version": "[4.5.2, )"
+              "version": "[4.7.0, )"
             }
           },
           "imports": [
