@@ -122,8 +122,7 @@ let implode L =
     let sb = System.Text.StringBuilder()
     L |> List.iter(fun c-> ignore(sb.Append(c:char)))
     sb.ToString()
-
-
+    
 [<EntryPoint>]
 let main argv =
     printf"input> "
