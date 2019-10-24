@@ -124,6 +124,10 @@ let rec sort_toStationID L =
     |[]->[]
     |hd::tl -> List.sortBy (fun (hd : int List) -> hd.Item(1)) L @ sort_toStationID tl
 *)
+//Print Tuple
+let print_rides_toStation tuple1 =
+   match tuple1 with
+    | (a, b) -> printfn "# of rides to station %A: %A" a b
 [<EntryPoint>]
 let main argv =
   //
@@ -190,11 +194,27 @@ let main argv =
   //let result = List.sortBy (fun (x : int List) -> x.Item(1)) stationID_count
   let sorted = List.sortBy (fun (_, y) -> -y) stationID_count
   //Histogram of days**********
-  
+
+
+  //print top 10 rides toStation
+  let one = sorted.Item(0)
+  let two = sorted.Item(1)
+  let three = sorted.Item(2)
+  let four = sorted.Item(3)
+  let five = sorted.Item(4)
+  let six = sorted.Item(5)
+  let seven = sorted.Item(6)
+  let eight = sorted.Item(7)
+  let nine = sorted.Item(8)
+  let ten = sorted.Item(9)
+
+
+
+
   printfn "\n# of rides: %A\n" N
   printfn "# of bikes: %A\n" num_bikes
   printfn"BikeID> %A\n"  unique_bikeID
-  printfn"# of rides for BikeID 102: %A\n" bikeID_length
+  printfn"# of rides for BikeID %A: %A\n" unique_bikeID bikeID_length
   printfn"Total time spent riding BikeID %i: %A minutes %A seconds\n" unique_bikeID minutes seconds
   printfn"Average time spent riding BikeID %i: %.2f seconds\n" unique_bikeID avg_time
   printfn "StationID> %A\n" sID
@@ -228,19 +248,22 @@ let main argv =
   printf" %A\n" num_friday
   printf"6: " 
   printstars (num_satday/10)
-  printf" %A\n" num_satday
+  printf" %A\n\n" num_satday
 
-  printfn"%A\n" stationID_count
-  printfn"%A\n" sorted
-  (*
-  printfn"# of rides to station %A: %A"
-  printfn"# of rides to station %A: %A"
-  printfn"# of rides to station %A: %A"
-  printfn"# of rides to station %A: %A"
-  printfn"# of rides to station %A: %A"
-  printfn"# of rides to station %A: %A"
-  printfn"# of rides to station %A: %A"
-  *)
+  //See diffrence between stationID_count list and sorted
+  //printfn"%A\n" stationID_count
+  //printfn"%A\n" sorted
 
+  
+  print_rides_toStation one
+  print_rides_toStation two
+  print_rides_toStation three
+  print_rides_toStation four
+  print_rides_toStation five
+  print_rides_toStation six
+  print_rides_toStation seven
+  print_rides_toStation eight
+  print_rides_toStation nine
+  print_rides_toStation ten
   0// 
 
