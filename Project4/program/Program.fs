@@ -93,10 +93,10 @@ let rec _helper_bikeID value n l =
         |[] -> []
         |hd::tl when nth_elem n hd = value -> hd :: _helper_bikeID value n tl
         |hd::tl -> _helper_bikeID value n tl
-let bikeID_list l = 
-    _helper_bikeID 102 2 l
-let stationID_list l = 
-    _helper_bikeID 20 1 l
+let bikeID_list n l = 
+    _helper_bikeID n 2 l
+let stationID_list n l = 
+    _helper_bikeID n 1 l
 let rec sum values = 
     match values with
     |[]->0
@@ -143,15 +143,19 @@ let main argv =
 
   //num bikes
   let bike_ID_list = _helper 2 ridedata
-  //let num_bikes = count2 bike_ID_list
+  let num_bikes = count2 bike_ID_list
 
 
   //bike_ID
+
   let unique_bike_list = unique bike_ID_list
   let num_bikes = unique_bike_list.Length
-  let bike_ID_list = bikeID_list ridedata
+  let unique_bikeID = System.Console.ReadLine() |> int
+  let bike_ID_list = bikeID_list unique_bikeID ridedata////This creates any bikeID
 
-  
+
+  (**)
+  //printfn"%A\n" unique_bike_list
   let unique_bikeID = bike_ID_list.Item(0).Item(2)
   let bikeID_length = bike_ID_list.Length
 
@@ -163,16 +167,15 @@ let main argv =
 
   //avg time
   let avg_time = float total_time/float bikeID_length
-
   
   //to stationID (2nd paramter in list of list)
-  let stationID_list = stationID_list ridedata
-  let sID = stationID_list.Item(0).Item(1)
+  //let stationID_list = stationID_list ridedata
+  let unique_sID = System.Console.ReadLine() |> int
+  let stationID_list = stationID_list unique_sID ridedata
   let to_stationID = stationID_list.Length
   let total_time_StationID_list = _helper 5 stationID_list
   let total_time_stationID = sum total_time_StationID_list
   let avg_time_stationID = float total_time_stationID/float to_stationID
-
 
 
   //Number of trips on day 
@@ -191,10 +194,9 @@ let main argv =
   let unique_to_stationID_list = unique2 to_stationID_list_duplicates
   let stationID_count = tuple_stationID_count unique_to_stationID_list to_stationID_list_duplicates
   //sort function
-  //let result = List.sortBy (fun (x : int List) -> x.Item(1)) stationID_count
   let sorted = List.sortBy (fun (_, y) -> -y) stationID_count
   //Histogram of days**********
-
+  let sorted = sorted |> List.sortWith (fun (w1, ln1) (w2, ln2) -> compare (ln2, w1) (ln1, w2))
 
   //print top 10 rides toStation
   let one = sorted.Item(0)
@@ -208,24 +210,26 @@ let main argv =
   let nine = sorted.Item(8)
   let ten = sorted.Item(9)
 
-
-
+  
 
   printfn "\n# of rides: %A\n" N
   printfn "# of bikes: %A\n" num_bikes
-  printfn"BikeID> %A\n"  unique_bikeID
+  //printfn"BikeID> %A\n"  unique_bikeID
+  printf"BikeID> \n" 
   printfn"# of rides for BikeID %A: %A\n" unique_bikeID bikeID_length
   printfn"Total time spent riding BikeID %i: %A minutes %A seconds\n" unique_bikeID minutes seconds
   printfn"Average time spent riding BikeID %i: %.2f seconds\n" unique_bikeID avg_time
-  printfn "StationID> %A\n" sID
-  printfn "# of rides to StationID %A: %A\n" sID to_stationID
-  printfn"Average time spent on trips leading to StationID %A: %.2f seconds\n" sID avg_time_stationID
-  printfn"Number of Trips on Sunday: %A\n" num_sunday
-  printfn"Number of Trips on Monday: %A\n" num_monday
-  printfn"Number of Trips on Tuesday: %A\n" num_tuesday
-  printfn"Number of Trips on Wednesday: %A\n" num_wednesday
-  printfn"Number of Trips on Thursday: %A\n" num_thursday
-  printfn"Number of Trips on Friday: %A\n" num_friday
+  //printfn "StationID> %A\n" unique_sID
+  printf "StationID> \n" 
+
+  printfn "# of rides to StationID %A: %A\n" unique_sID to_stationID
+  printfn"Average time spent on trips leading to StationID %A: %.2f seconds\n" unique_sID avg_time_stationID
+  printfn"Number of Trips on Sunday: %A" num_sunday
+  printfn"Number of Trips on Monday: %A" num_monday
+  printfn"Number of Trips on Tuesday: %A" num_tuesday
+  printfn"Number of Trips on Wednesday: %A" num_wednesday
+  printfn"Number of Trips on Thursday: %A" num_thursday
+  printfn"Number of Trips on Friday: %A" num_friday
   printfn"Number of Trips on Saturday: %A\n" num_satday
 
   printf"0: " 
@@ -254,7 +258,7 @@ let main argv =
   //printfn"%A\n" stationID_count
   //printfn"%A\n" sorted
 
-  
+
   print_rides_toStation one
   print_rides_toStation two
   print_rides_toStation three
@@ -265,5 +269,6 @@ let main argv =
   print_rides_toStation eight
   print_rides_toStation nine
   print_rides_toStation ten
+  printfn ""
   0// 
 
