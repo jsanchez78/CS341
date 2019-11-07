@@ -1,0 +1,33 @@
+#light
+
+module hw10
+
+//
+// iter F L
+//
+// Applies function F to L (NOTE: its behaviour is similar to built in List.iter)
+// 
+// Examples: iter (fun x -> printfn "%A squared is %A" x*x ) [1; 2] => 1 squared is 1
+//                                                                     2 squared is 4
+//           iter (fun x -> printf "%A" x) ['t'; 'r'; 'u'; 'e']     => true
+//           iter (fun x -> printfn "Iterating...") []              => 
+// 
+// NOTE: you can solve using tail-recursion, or using
+// higher-order approach.  Whatever you prefer.
+// You may not call List.iter directly in your solution.
+// 
+// 
+// 
+let rec _iter F L =
+    match L with
+    |[]-> ()
+    |hd::tl -> (F hd) 
+               _iter F tl
+///Index on format similar to CONTINUE
+let iter F L = 
+    _iter F L
+
+[<EntryPoint>]
+let main argv =
+    let test = iter (fun x -> printfn "%A squared is %A" x*x ) [1; 2]
+    0 // return an integer exit code

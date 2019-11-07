@@ -46,9 +46,6 @@ let rec _count x L soFar =
         |_::rest -> _count x rest (soFar)
 let count x L = 
     _count x L 0
-
-
-
 let rec _count2 L soFar =
     match L with 
         |[]->soFar
