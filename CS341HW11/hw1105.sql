@@ -1,0 +1,4 @@
+SELECT IUCR,Codes.PrimaryDesc,Codes.SecondaryDesc 
+FROM Codes
+WHERE IUCR='0820' OR IUCR='0486' OR IUCR='0460'
+ORDER BY IUCR ASC;

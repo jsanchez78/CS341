@@ -1,0 +1,3 @@
+SELECT COUNT(IUCR) AS TotalNumCrimes
+FROM Crimes
+WHERE Area=4;

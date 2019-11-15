@@ -1,0 +1,4 @@
+SELECT IUCR,COUNT(*) AS NumCrimes
+FROM Crimes
+GROUP BY IUCR
+ORDER BY NumCrimes DESC;
