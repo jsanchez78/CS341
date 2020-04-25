@@ -1,7 +1,7 @@
 //
 // F# program to analyze Divvy daily ride data.
 //
-// << YOUR NAME HERE >>
+// << Jacob Luis Sanchez >>
 // U. of Illinois, Chicago
 // CS 341, Fall 2019
 // Project #04
